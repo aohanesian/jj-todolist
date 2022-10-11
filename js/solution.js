@@ -60,19 +60,21 @@
         currentItem.remove();
     })
 
-    // const delBtn = document.querySelector(`#delete-btn`);
-    // delBtn.addEventListener(`click`, (evt) => {
+    const delBtn = document.querySelector(`#delete-btn`);
+    delBtn.addEventListener(`click`, (evt) => {
+        while (todoItems.firstChild) {
+            todoItems.removeChild(todoItems.firstChild);
+        }
+        localStorage.clear();
+        id = 0;
+    });
+
+    // form.addEventListener(`reset`, (evt) => {
+    //     evt.stopPropagation();
     //     todoItems.remove();
     //     localStorage.clear();
     //     id = 0;
-    // });
-
-    form.addEventListener(`reset`, (evt) => {
-        evt.stopPropagation();
-        todoItems.remove();
-        localStorage.clear();
-        id = 0;
-        location.reload()
-    })
+    //     location.reload()
+    // })
 
 })();
