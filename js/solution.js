@@ -52,6 +52,7 @@
     todoItems.addEventListener(`click`, (evt) => {
         evt.stopPropagation();
         const currentItem = evt.target.closest(`[data-id]`);
+        if (currentItem === null) return;
         const currentItemId = +currentItem.getAttribute(`data-id`);
         const filteringItem = JSON
             .parse(localStorage.getItem(dataKey))
@@ -62,6 +63,7 @@
 
     const delBtn = document.querySelector(`#delete-btn`);
     delBtn.addEventListener(`click`, (evt) => {
+        evt.stopPropagation();
         while (todoItems.firstChild) {
             todoItems.removeChild(todoItems.firstChild);
         }
